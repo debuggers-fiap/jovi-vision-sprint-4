@@ -1,20 +1,22 @@
 // Modo Estudo: simula o reconhecimento do texto de um livro
 // e a leitura em voz alta.
-// Recebe do App a velocidade da leitura e a funcao de salvar.
+//
+// Recebe por props os textos do acervo (que vem da API), a velocidade da
+// leitura e a funcao de salvar. Esta tela nao busca nada sozinha: ela so
+// desenha e avisa o que o usuario fez.
 
 import { useState } from "react";
 import Visor from "./Visor.jsx";
 import BotaoObturador from "./BotaoObturador.jsx";
 import CartaoResultado from "./CartaoResultado.jsx";
-import { textosDeLivro } from "../dados/textosSimulados.js";
 import { sortearItem, sortearConfianca } from "../funcoes.js";
 
 function TelaEstudo({
+  textos,
   velocidade,
   volume,
   leituraAutomatica,
   aoSalvarNaBiblioteca,
-  mostrarAviso,
 }) {
   const [resultado, setResultado] = useState(null);
   const [ocupado, setOcupado] = useState(false);
@@ -27,7 +29,7 @@ function TelaEstudo({
 
     // Espera um pouco para simular o tempo que a analise levaria
     setTimeout(() => {
-      const sorteado = sortearItem(textosDeLivro);
+      const sorteado = sortearItem(textos);
       setResultado({
         titulo: sorteado.titulo,
         texto: sorteado.texto,
@@ -37,10 +39,11 @@ function TelaEstudo({
     }, 1500);
   }
 
+  // Quem mostra o aviso de confirmacao e o hook useBiblioteca, porque e ele
+  // que sabe se o item foi registrado no servidor ou so aqui no aparelho.
   function salvar() {
     aoSalvarNaBiblioteca(resultado);
     setFoiSalvo(true);
-    mostrarAviso("Texto guardado na biblioteca", "certo");
   }
 
   return (

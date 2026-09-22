@@ -1,21 +1,22 @@
 // Digitalizar Documento: simula a deteccao das bordas da folha
 // e a geracao de um arquivo PDF.
-// Recebe do App a funcao que registra o PDF gerado.
+//
+// Recebe por props os documentos do acervo (que vem da API) e a funcao que
+// registra o PDF gerado.
 
 import { useState } from "react";
 import Visor from "./Visor.jsx";
 import BotaoObturador from "./BotaoObturador.jsx";
-import { documentosSimulados } from "../dados/textosSimulados.js";
 import { sortearItem, sortearConfianca, estimarTamanhoDoPdf } from "../funcoes.js";
 
-function TelaDigitalizar({ aoGerarPdf }) {
+function TelaDigitalizar({ documentos, aoGerarPdf }) {
   const [ocupado, setOcupado] = useState(false);
 
   function digitalizar() {
     setOcupado(true);
 
     setTimeout(() => {
-      const sorteado = sortearItem(documentosSimulados);
+      const sorteado = sortearItem(documentos);
 
       // Monta o documento com os calculos do arquivo.
       // O codigo de identificacao e criado pelo App.
