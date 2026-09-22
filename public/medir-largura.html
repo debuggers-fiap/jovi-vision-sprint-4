@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Medicao de largura</title>
+    <style>
+      body { font: 13px/1.5 monospace; background: #fff; color: #000; margin: 0; padding: 10px; }
+      iframe { position: absolute; left: -3000px; top: 0; height: 900px; border: 0; }
+      pre { white-space: pre-wrap; }
+      .ok { color: #067d3a; }
+      .ruim { color: #c40d0d; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <pre id="saida">medindo...</pre>
+    <iframe id="alvo"></iframe>
+
+    <script>
+      const alvo = document.getElementById("alvo");
+      const saida = document.getElementById("saida");
+
+      // Desktop, tablet e mobile - as tres faixas que a entrega exige.
+      const casos = [
+        { rota: "/", largura: 1280, nome: "Landing  DESKTOP" },
+        { rota: "/", largura: 768, nome: "Landing  TABLET " },
+        { rota: "/", largura: 390, nome: "Landing  MOBILE " },
+        { rota: "/login", largura: 1280, nome: "Login    DESKTOP" },
+        { rota: "/login", largura: 390, nome: "Login    MOBILE " },
+      ];
+
+      const linhas = [];
+      let atual = 0;
+
+      function esperar(ms) {
+        return new Promise(function (pronto) {
+          setTimeout(pronto, ms);
+        });
+      }
+
+      async function medirUm(caso) {
+        alvo.style.width = caso.largura + "px";
+
+        await new Promise(function (pronto) {
+          alvo.onload = pronto;
+          alvo.src = caso.rota + "?medicao=" + Date.now();
+        });
+
+        await esperar(700);
+
+        const doc = alvo.contentDocument;
+        const raiz = doc.documentElement;
+        const rolagem = raiz.scrollWidth;
+        const visivel = raiz.clientWidth;
+        const transborda = rolagem > visivel + 1;
+
+        let detalhe = "";
+        if (transborda) {
+          const culpados = [];
+          doc.querySelectorAll("*").forEach(function (elemento) {
+            const caixa = elemento.getBoundingClientRect();
+            if (caixa.right > visivel + 1 && culpados.length < 5) {
+              culpados.push(
+                elemento.tagName + "[" + String(elemento.className || "").slice(0, 45) + "]"
+              );
+            }
+          });
+          detalhe = "\n        culpados: " + culpados.join(", ");
+        }
+
+        linhas.push(
+          caso.nome +
+            "  pedido=" + caso.largura +
+            "  scroll=" + rolagem +
+            "  visivel=" + visivel +
+            "  " + (transborda ? "TRANSBORDA" : "cabe") +
+            detalhe
+        );
+      }
+
+      async function medirTudo() {
+        for (const caso of casos) {
+          await medirUm(caso);
+          saida.textContent = linhas.join("\n");
+        }
+        const algumRuim = linhas.some(function (l) {
+          return l.indexOf("TRANSBORDA") >= 0;
+        });
+        saida.textContent =
+          linhas.join("\n") +
+          "\n\nRESULTADO: " +
+          (algumRuim ? "TEM TRANSBORDO" : "TODAS AS LARGURAS PASSARAM");
+      }
+
+      medirTudo();
+    </script>
+  </body>
+</html>

@@ -22,6 +22,14 @@
 }
 
 
+/* O CSS do aplicativo da camera (a moldura do celular, o visor, as telas)
+   fica dentro de @layer components.
+
+   Isso importa por causa da ordem das camadas do Tailwind:
+   base -> components -> utilities. Sem a camada, estas regras antigas
+   ganhariam de TODAS as classes do Tailwind, e a Landing Page apareceria
+   sem margem nenhuma. Dentro da camada, quem manda no fim e a classe. */
+@layer components {
 :root {
   --rosa: #e91e8c;
   --rosa-claro: #ff4dab;
@@ -1502,4 +1510,6 @@ body {
 .aviso-atencao {
   border: 1px solid #ffb454;
   color: #ffb454;
+}
+
 }
