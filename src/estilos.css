@@ -826,29 +826,6 @@ body {
   gap: 8px;
 }
 
-.item-salvo {
-  background-color: var(--caixa);
-  border: 1px solid var(--borda);
-  border-radius: 12px;
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-}
-
-.item-titulo {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.item-info {
-  font-family: "DM Mono", monospace;
-  font-size: 10px;
-  color: var(--texto-fraco);
-  margin-top: 3px;
-}
-
 .vazio {
   background-color: var(--caixa);
   border: 1px dashed var(--borda);
@@ -919,25 +896,6 @@ body {
   gap: 20px;
 }
 
-.velocidade-valor {
-  font-family: "DM Mono", monospace;
-  font-size: 24px;
-  color: var(--rosa);
-  min-width: 70px;
-  text-align: center;
-}
-
-.botao-redondo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--rosa);
-  background-color: transparent;
-  color: var(--rosa);
-  font-size: 20px;
-  cursor: pointer;
-}
-
 /* ---------- Barra de modos ---------- */
 
 .barra-modos {
@@ -991,26 +949,6 @@ body {
 }
 
 /* ---------- Rodape da pagina ---------- */
-
-.rodape {
-  text-align: center;
-  max-width: 384px;
-}
-
-.rodape-equipe {
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: var(--rosa);
-}
-
-.rodape-nomes {
-  font-size: 11px;
-  color: #5d6675;
-  margin-top: 6px;
-  line-height: 1.7;
-}
 
 /* ---------- Login ---------- */
 
@@ -1115,16 +1053,6 @@ body {
   color: #ff8f8f;
 }
 
-.botao-texto {
-  background: none;
-  border: none;
-  color: var(--rosa);
-  font-family: "DM Sans", Arial, sans-serif;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 0;
-}
-
 .aviso {
   font-size: 12px;
   color: var(--texto-fraco);
@@ -1192,66 +1120,6 @@ body {
    ===================================================================== */
 
 /* ---------- Barra de cima, fora do celular ---------- */
-
-.barra-superior {
-  width: 100%;
-  max-width: 384px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--borda);
-}
-
-.barra-superior-marca {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.barra-superior-ponto {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: var(--rosa);
-  box-shadow: 0 0 8px var(--rosa);
-}
-
-.barra-superior-usuario {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.barra-superior-saudacao {
-  font-size: 12px;
-  color: var(--texto-fraco);
-}
-
-.barra-superior-saudacao strong {
-  color: var(--texto);
-}
-
-.barra-superior-sair {
-  padding: 6px 14px;
-  border: 1px solid var(--borda);
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--texto-fraco);
-  font-family: "DM Sans", Arial, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.barra-superior-sair:hover {
-  border-color: var(--rosa);
-  color: var(--rosa);
-}
 
 /* ---------- Barra de status do aparelho ---------- */
 
@@ -1483,30 +1351,6 @@ body {
 
 /* Mensagem curta que confirma a ultima acao. Alem de aparecer na tela,
    ela usa role="status" para que o leitor de tela tambem anuncie. */
-.aviso-flutuante {
-  position: absolute;
-  bottom: 76px;
-  left: 16px;
-  right: 16px;
-  z-index: 8;
-  padding: 9px 14px;
-  border-radius: 20px;
-  background-color: rgba(6, 9, 13, 0.92);
-  font-family: "DM Mono", monospace;
-  font-size: 11px;
-  text-align: center;
-}
-
-.aviso-certo {
-  border: 1px solid var(--azul);
-  color: var(--azul);
-}
-
-.aviso-info {
-  border: 1px solid var(--rosa);
-  color: var(--rosa);
-}
-
 .aviso-atencao {
   border: 1px solid #ffb454;
   color: #ffb454;

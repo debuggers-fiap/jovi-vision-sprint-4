@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Telas do aplicativo</title>
+    <style>
+      body { font: 12px/1.4 monospace; background: #fff; margin: 0; padding: 8px; }
+      .grade { display: grid; grid-template-columns: repeat(3, 420px); gap: 8px; }
+      figure { margin: 0; }
+      figcaption { padding: 2px 0; font-weight: bold; }
+      iframe { width: 420px; height: 940px; border: 1px solid #999; }
+    </style>
+  </head>
+  <body>
+    <p id="estado">preparando...</p>
+    <div class="grade" id="grade"></div>
+
+    <script>
+      // Entra no aplicativo gravando o usuario direto no localStorage, do
+      // mesmo jeito que a tela de login faria. Como esta pagina e servida
+      // pelo mesmo endereco do projeto, ela compartilha o localStorage.
+      localStorage.setItem(
+        "jovi_usuario",
+        JSON.stringify({ nome: "Enrico Vidal", email: "demo@jovi.com", rm: "569217" })
+      );
+
+      // Deixa a biblioteca com um item, para a tela de arquivos nao ficar vazia.
+      localStorage.setItem(
+        "jovi_biblioteca",
+        JSON.stringify([
+          {
+            codigo: "DOC-4821",
+            titulo: "Apostila de Biologia",
+            texto: "A fotossintese e o processo pelo qual as plantas convertem luz solar.",
+            confianca: 98.4,
+            tamanho: 128,
+            data: "22/09 as 20:10",
+          },
+        ])
+      );
+
+      const telas = [
+        { rota: "/app", nome: "Camera" },
+        { rota: "/app/estudo", nome: "Modo Estudo" },
+        { rota: "/app/lousa", nome: "Scanner de Lousa" },
+        { rota: "/app/digitalizar", nome: "Digitalizar" },
+        { rota: "/app/arquivos", nome: "Arquivos" },
+        { rota: "/app/acessibilidade", nome: "Acessibilidade" },
+      ];
+
+      const grade = document.getElementById("grade");
+
+      telas.forEach(function (tela) {
+        const figura = document.createElement("figure");
+        const legenda = document.createElement("figcaption");
+        legenda.textContent = tela.nome + "  (" + tela.rota + ")";
+        const quadro = document.createElement("iframe");
+        quadro.src = tela.rota;
+        figura.appendChild(legenda);
+        figura.appendChild(quadro);
+        grade.appendChild(figura);
+      });
+
+      document.getElementById("estado").textContent =
+        "logado como demo@jovi.com - " + telas.length + " telas abaixo";
+    </script>
+  </body>
+</html>
