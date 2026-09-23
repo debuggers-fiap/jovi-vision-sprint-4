@@ -1,0 +1,21 @@
+Ferramentas de conferencia da equipe
+====================================
+
+Estas duas paginas NAO fazem parte do site entregue. Elas ficam fora da pasta
+public/ de proposito, para nao irem para o ar junto com o projeto.
+
+  medir-largura.html    Abre o site dentro de um quadro de largura fixa
+                        (1280, 768 e 390) e diz se algum elemento passa da
+                        borda. E assim que a responsividade foi conferida.
+
+  fotografar-telas.html Entra no aplicativo gravando o usuario direto no
+                        localStorage e mostra as seis telas lado a lado.
+                        Serve para comparar o antes e o depois de uma
+                        mudanca de estilo.
+
+Como usar:
+
+  1. copie o arquivo que quiser para a pasta public/
+  2. rode  npm run dev
+  3. abra  http://localhost:5173/medir-largura.html
+  4. apague o arquivo de public/ quando terminar
