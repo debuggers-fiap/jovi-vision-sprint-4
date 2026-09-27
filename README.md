@@ -114,15 +114,10 @@ A Landing Page é pública e não pede login.
 
 ## Onde e como a IA foi utilizada no projeto
 
-A equipe usou o **Claude (Anthropic)** como assistente de programação durante
-toda a Sprint 4. A IA foi usada para: migrar a Landing Page de HTML e CSS para
-componentes React com Tailwind; planejar a separação da lógica em hooks
-customizados; escrever a API em funções serverless; e revisar a responsividade
-nas três larguras exigidas. Todas as decisões de escopo, a identidade visual, o
-conteúdo escrito e a solução da Challenge são da equipe — a IA não definiu o que
-o produto faz, foi usada para acelerar a escrita do código e para revisar o que
-já estava decidido. Todo o código gerado foi lido, testado e ajustado pela
-equipe antes de entrar no projeto.
+A equipe usou o Claude (Anthropic) como assistente de programação ao longo da
+Sprint 4, na escrita e na revisão do código. A proposta da Challenge, as decisões
+de escopo, a identidade visual e o conteúdo do site são da equipe. Todo o código
+foi lido, testado e ajustado antes de entrar no projeto.
 
 ## Novas funcionalidades desta Sprint
 
