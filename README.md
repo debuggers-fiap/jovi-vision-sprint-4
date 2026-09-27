@@ -114,10 +114,10 @@ A Landing Page é pública e não pede login.
 
 ## Onde e como a IA foi utilizada no projeto
 
-A equipe usou o Claude (Anthropic) como assistente de programação ao longo da
-Sprint 4, na escrita e na revisão do código. A proposta da Challenge, as decisões
-de escopo, a identidade visual e o conteúdo do site são da equipe. Todo o código
-foi lido, testado e ajustado antes de entrar no projeto.
+O código desta Sprint foi escrito em conjunto: parte pela equipe e parte com
+apoio de IA, usada como assistente de programação. A proposta da Challenge, as
+decisões de escopo, a identidade visual e o conteúdo do site são da equipe, que
+revisou e testou todo o resultado antes da entrega.
 
 ## Novas funcionalidades desta Sprint
 
