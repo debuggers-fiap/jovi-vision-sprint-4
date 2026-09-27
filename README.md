@@ -124,6 +124,20 @@ o produto faz, foi usada para acelerar a escrita do código e para revisar o que
 já estava decidido. Todo o código gerado foi lido, testado e ajustado pela
 equipe antes de entrar no projeto.
 
+## Novas funcionalidades desta Sprint
+
+A Sprint 4 pede a evolução do projeto da Sprint 3 **acrescentando novas
+funcionalidades**. Três entraram, todas na tela **Arquivos** (`/app/arquivos`),
+que é onde ficam os textos e documentos que o estudante salvou:
+
+| Funcionalidade | O que faz | Onde está |
+|---|---|---|
+| **Busca na biblioteca** | Filtra os itens salvos por título, pelo conteúdo do texto ou pelo código. Ignora maiúsculas e acentos, então procurar por `matematica` encontra "Matemática". | `src/hooks/useBuscaNaBiblioteca.js` |
+| **Estatísticas de uso** | Total de itens, acerto médio, melhor leitura, palavras reconhecidas, espaço usado e qual foi o item mais recente. Os cálculos usam o objeto `Math`. | `src/componentes/EstatisticasDaBiblioteca.jsx` |
+| **Exportar a biblioteca** | Baixa tudo o que foi salvo num arquivo `.txt`, para o estudante levar o conteúdo para fora do aplicativo. | `baixarBiblioteca()` em `src/componentes/TelaPdf.jsx` |
+
+Na Sprint 3, essa tela só listava os itens salvos.
+
 ## O que a Sprint 4 pedia, e onde está cada coisa
 
 | Requisito | Onde está no projeto |
@@ -132,11 +146,12 @@ equipe antes de entrar no projeto.
 | **Rotas públicas** | `/` (Landing) e `/login`, em `src/App.jsx` |
 | **Rotas privadas** | `/app/*`, protegidas por `src/componentes/RotaPrivada.jsx` |
 | **Hooks nativos** | `useState`, `useEffect`, `useRef`, `useNavigate`, `useLocation` |
-| **Hooks customizados** | Os 8 arquivos de `src/hooks/` |
+| **Hooks customizados** | Os 9 arquivos de `src/hooks/` |
 | **Tailwind CSS** | Toda a Landing Page e a estrutura do aplicativo |
 | **Responsividade** | Desktop, Tablet e Mobile — medido, veja abaixo |
 | **Consumo de API** | `src/servicoDaApi.js` e o hook `src/hooks/useConteudos.js` |
 | **Landing integrada ao React** | `src/paginas/Landing.jsx` e `src/componentes/landing/` |
+| **Novas funcionalidades** | Busca, estatísticas e exportar — veja a seção acima |
 | **Deploy Git + Vercel** | Veja os links no início deste arquivo |
 
 ### Sobre o Tailwind e o CSS que sobrou
@@ -220,6 +235,7 @@ resolve. Foi assim que o `App.jsx` saiu de 321 linhas na Sprint 3 para 90.
 | `useConteudos` | Busca o acervo na API, com carregando e erro |
 | `useComandoDeVoz` | Liga e desliga o microfone |
 | `useFormularioDeContato` | Os campos e a validação do formulário |
+| `useBuscaNaBiblioteca` | A busca e os números de uso da biblioteca |
 
 ## Responsividade
 
