@@ -21,7 +21,7 @@ faz parte do próprio projeto React, junto com o aplicativo.
 ## Links da entrega
 
 - **Deploy na Vercel:** <https://jovi-vision-sprint-4.vercel.app>
-- **Repositório Git:** `PREENCHER_APOS_CRIAR_O_REPOSITORIO`
+- **Repositório Git:** <https://github.com/debuggers-fiap/jovi-vision-sprint-4>
 
 ## Tecnologias utilizadas
 
